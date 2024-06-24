@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>0623区块链基础知识学习测试题</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .question input[type="text"] {
+            width: 300px;
+        }
+        .question input[type="radio"],
+        .question input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .question textarea {
+            width: 100%;
+            height: 100px;
+        }
+        .timer {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .score {
+            color: red;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>0623区块链基础知识学习测试题</h1>
+    <div class="timer" id="timer">60:00</div>
+    <button type="button" onclick="startTest()">开始答题</button>
+    <form id="testForm" style="display:none;">
+        <!-- Questions will be dynamically inserted here -->
+    </form>
+    <button type="button" onclick="submitTest()">提交</button>
+    <div id="result"></div>
+
+    <script>
+        let timeLeft = 3600;
+        let timerId;
+
+        function startTest() {
+            document.getElementById('testForm').style.display = 'block';
+            timerId = setInterval(countdown, 1000);
+        }
+
+        function countdown() {
+            if (timeLeft === 0) {
+                clearTimeout(timerId);
+                submitTest();
+            } else {
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                if (seconds < 10) seconds = '0' + seconds;
+                document.getElementById('timer').innerHTML = minutes + ':' + seconds;
+                timeLeft--;
+            }
+        }
+
+        fetch('/questions_corrected.json') // 从服务器加载 JSON 文件
+            .then(response => response.json())
+            .then(data => loadQuestions(data));
+
+        function loadQuestions(questions) {
+            const form = document.getElementById('testForm');
+
+            // Load fill in the blank questions
+            questions.fill_in_the_blank.forEach((q, index) => {
+                const div = document.createElement('div');
+                div.className = 'question';
+                let html = `<label>${index + 1}. ${q.question.replace(/_____/g, '<input type="text" name="fill_in_the_blank_' + index + '_0" required>')}</label>`;
+                form.appendChild(div);
+                div.innerHTML = html;
+            });
+
+            // Load single choice questions
+            questions.single_choice.forEach((q, index) => {
+                const div = document.createElement('div');
+                div.className = 'question';
+                let html = `<label>${index + 1}. ${q.question}</label><br>`;
+                q.options.forEach(option => {
+                    html += `<input type="radio" name="single_choice_${index}" value="${option.charAt(0)}" required> ${option}<br>`;
+                });
+                form.appendChild(div);
+                div.innerHTML = html;
+            });
+
+            // Load multiple choice questions
+            questions.multiple_choice.forEach((q, index) => {
+                const div = document.createElement('div');
+                div.className = 'question';
+                let html = `<label>${index + 1}. ${q.question}</label><br>`;
+                q.options.forEach(option => {
+                    html += `<input type="checkbox" name="multiple_choice_${index}" value="${option.charAt(0)}"> ${option}<br>`;
+                });
+                form.appendChild(div);
+                div.innerHTML = html;
+            });
+
+            // Load true/false questions
+            questions.true_false.forEach((q, index) => {
+                const div = document.createElement('div');
+                div.className = 'question';
+                let html = `<label>${index + 1}. ${q.question}</label><br>
+                            <input type="radio" name="true_false_${index}" value="对" required> 对<br>
+                            <input type="radio" name="true_false_${index}" value="错" required> 错<br>`;
+                form.appendChild(div);
+                div.innerHTML = html;
+            });
+
+            // Load case analysis questions
+            questions.case_analysis.forEach((q, index) => {
+                const div = document.createElement('div');
+                div.className = 'question';
+                div.innerHTML = `<label>${index + 1}. ${q.question}</label><br><textarea name="case_analysis_${index}" required></textarea><br>`;
+                form.appendChild(div);
+            });
+        }
+
+        function submitTest() {
+            clearTimeout(timerId); // 停止计时
+            const form = document.getElementById('testForm');
+            const formData = new FormData(form);
+            const answers = {};
+            formData.forEach((value, key) => {
+                if (answers[key]) {
+                    if (!Array.isArray(answers[key])) {
+                        answers[key] = [answers[key]];
+                    }
+                    answers[key].push(value);
+                } else {
+                    answers[key] = value;
+                }
+            });
+
+            fetch('/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(answers)
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerHTML = `<span class="score">您的得分是: ${data.score}</span>`; // 显示得分
+            });
+        }
+    </script>
+</body>
+</html>

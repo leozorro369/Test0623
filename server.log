@@ -1,0 +1,87 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 328-517-210
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 03:26:07] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 03:26:07] "[36mGET /questions_corrected.json HTTP/1.1[0m" 304 -
+DEBUG:root:User answers: {'fill_in_the_blank_0_0': 'π˛œ£∫Ø ˝', 'fill_in_the_blank_1_0': '', 'fill_in_the_blank_2_0': '', 'fill_in_the_blank_3_0': '', 'fill_in_the_blank_4_0': '∏ﬂ¡˜∂Ø–‘', 'single_choice_0': 'c', 'single_choice_1': 'b', 'single_choice_2': 'a', 'single_choice_3': 'b', 'single_choice_4': 'b', 'single_choice_5': 'c', 'single_choice_6': 'c', 'single_choice_7': 'a', 'multiple_choice_5': ['a', 'b', 'c'], 'multiple_choice_6': ['a', 'b', 'c'], 'multiple_choice_7': ['a', 'b', 'c'], 'true_false_0': '∂‘', 'true_false_1': '∂‘', 'true_false_2': '¥Ì', 'true_false_3': '¥Ì', 'true_false_4': '∂‘', 'true_false_5': '¥Ì', 'true_false_17': '∂‘', 'true_false_18': '∂‘', 'true_false_19': '∂‘', 'case_analysis_0': '1. »∑»œµÿ÷∑£∫√ø¥ŒΩ¯––◊™’À«∞£¨∂º“™◊–œ∏»∑»œ≥‰÷µµÿ÷∑£¨»∑±£ ‰»ÎŒﬁŒÛ°£’‚—˘ø…“‘±‹√‚“ÚŒ™ ‰»Î¥ÌŒÛµÿ÷∑µº÷¬◊ ≤˙∂™ ß°£\n2.  π”√∂˛Œ¨¬Î£∫æ°¡ø π”√∂˛Œ¨¬Î…®√Ë≥‰÷µµÿ÷∑£¨∂¯≤ª « ÷∂Ø ‰»Î°£∂˛Œ¨¬Îø…“‘ºı…Ÿ ÷∂Ø ‰»Î¥ÌŒÛµƒ∑Áœ’°£\n3. –°∂Ó≤‚ ‘'}
+DEBUG:root:Loading questions from: questions_corrected.json
+DEBUG:root:Questions successfully loaded
+DEBUG:root:Fill in the blank question 0_0: user_answer='π˛œ£∫Ø ˝', correct_answer='π˛œ£∫Ø ˝', score=2
+DEBUG:root:Fill in the blank question 1_0: user_answer='', correct_answer='π˛œ£÷µ', score=2
+DEBUG:root:Fill in the blank question 2_0: user_answer='', correct_answer='÷«ƒ‹∫œ‘º', score=2
+DEBUG:root:Fill in the blank question 3_0: user_answer='', correct_answer='«¯øÈ¡¥Õ¯¬Á', score=2
+DEBUG:root:Fill in the blank question 4_0: user_answer='∏ﬂ¡˜∂Ø–‘', correct_answer='∏ﬂ¡˜∂Ø–‘', score=2.7
+DEBUG:root:Fill in the blank question 4_1: user_answer='', correct_answer='µÕΩª“◊∑—', score=2.7
+DEBUG:root:Fill in the blank question 4_2: user_answer='', correct_answer='∂‡÷÷Ωª“◊≤˙∆∑', score=2.7
+DEBUG:root:Fill in the blank score: 2.7
+DEBUG:root:Single choice question 0: user_answer='c', correct_answer='c', score=2
+DEBUG:root:Single choice question 1: user_answer='b', correct_answer='b', score=4
+DEBUG:root:Single choice question 2: user_answer='a', correct_answer='a', score=6
+DEBUG:root:Single choice question 3: user_answer='b', correct_answer='b', score=8
+DEBUG:root:Single choice question 4: user_answer='b', correct_answer='b', score=10
+DEBUG:root:Single choice question 5: user_answer='c', correct_answer='c', score=12
+DEBUG:root:Single choice question 6: user_answer='c', correct_answer='c', score=14
+DEBUG:root:Single choice question 7: user_answer='a', correct_answer='a', score=16
+DEBUG:root:Single choice question 8: user_answer='', correct_answer='b', score=16
+DEBUG:root:Single choice question 9: user_answer='', correct_answer='c', score=16
+DEBUG:root:Single choice question 10: user_answer='', correct_answer='b', score=16
+DEBUG:root:Single choice question 11: user_answer='', correct_answer='b', score=16
+DEBUG:root:Single choice question 12: user_answer='', correct_answer='c', score=16
+DEBUG:root:Single choice question 13: user_answer='', correct_answer='b', score=16
+DEBUG:root:Single choice question 14: user_answer='', correct_answer='b', score=16
+DEBUG:root:Single choice question 15: user_answer='', correct_answer='a', score=16
+DEBUG:root:Single choice question 16: user_answer='', correct_answer='c', score=16
+DEBUG:root:Single choice question 17: user_answer='', correct_answer='a', score=16
+DEBUG:root:Single choice question 18: user_answer='', correct_answer='a', score=16
+DEBUG:root:Single choice question 19: user_answer='', correct_answer='c', score=16
+DEBUG:root:Single choice score: 16
+DEBUG:root:Multiple choice question 0: user_answers_set='set()', correct_answers='{'d', 'a', 'b'}', score=0
+DEBUG:root:Multiple choice question 1: user_answers_set='set()', correct_answers='{'d', 'c', 'a'}', score=0
+DEBUG:root:Multiple choice question 2: user_answers_set='set()', correct_answers='{'a', 'b'}', score=0
+DEBUG:root:Multiple choice question 3: user_answers_set='set()', correct_answers='{'a', 'b'}', score=0
+DEBUG:root:Multiple choice question 4: user_answers_set='set()', correct_answers='{'d', 'c'}', score=0
+DEBUG:root:Multiple choice question 5: user_answers_set='{'c', 'a', 'b'}', correct_answers='{'c', 'a', 'b'}', score=2
+DEBUG:root:Multiple choice question 6: user_answers_set='{'c', 'a', 'b'}', correct_answers='{'c', 'a', 'b'}', score=4
+DEBUG:root:Multiple choice question 7: user_answers_set='{'c', 'a', 'b'}', correct_answers='{'c', 'a', 'b'}', score=6
+DEBUG:root:Multiple choice question 8: user_answers_set='set()', correct_answers='{'d', 'c'}', score=6
+DEBUG:root:Multiple choice question 9: user_answers_set='set()', correct_answers='{'c', 'a'}', score=6
+DEBUG:root:Multiple choice score: 6
+DEBUG:root:True/false question 0: user_answer='∂‘', correct_answer='∂‘', score=1
+DEBUG:root:True/false question 1: user_answer='∂‘', correct_answer='∂‘', score=2
+DEBUG:root:True/false question 2: user_answer='¥Ì', correct_answer='¥Ì', score=3
+DEBUG:root:True/false question 3: user_answer='¥Ì', correct_answer='¥Ì', score=4
+DEBUG:root:True/false question 4: user_answer='∂‘', correct_answer='∂‘', score=5
+DEBUG:root:True/false question 5: user_answer='¥Ì', correct_answer='¥Ì', score=6
+DEBUG:root:True/false question 6: user_answer='', correct_answer='∂‘', score=6
+DEBUG:root:True/false question 7: user_answer='', correct_answer='¥Ì', score=6
+DEBUG:root:True/false question 8: user_answer='', correct_answer='∂‘', score=6
+DEBUG:root:True/false question 9: user_answer='', correct_answer='¥Ì', score=6
+DEBUG:root:True/false question 10: user_answer='', correct_answer='∂‘', score=6
+DEBUG:root:True/false question 11: user_answer='', correct_answer='∂‘', score=6
+DEBUG:root:True/false question 12: user_answer='', correct_answer='∂‘', score=6
+DEBUG:root:True/false question 13: user_answer='', correct_answer='∂‘', score=6
+DEBUG:root:True/false question 14: user_answer='', correct_answer='∂‘', score=6
+DEBUG:root:True/false question 15: user_answer='', correct_answer='∂‘', score=6
+DEBUG:root:True/false question 16: user_answer='', correct_answer='¥Ì', score=6
+DEBUG:root:True/false question 17: user_answer='∂‘', correct_answer='∂‘', score=7
+DEBUG:root:True/false question 18: user_answer='∂‘', correct_answer='∂‘', score=8
+DEBUG:root:True/false question 19: user_answer='∂‘', correct_answer='∂‘', score=9
+DEBUG:root:True/false score: 9
+DEBUG:root:Case analysis answer: '1. »∑»œµÿ÷∑£∫√ø¥ŒΩ¯––◊™’À«∞£¨∂º“™◊–œ∏»∑»œ≥‰÷µµÿ÷∑£¨»∑±£ ‰»ÎŒﬁŒÛ°£’‚—˘ø…“‘±‹√‚“ÚŒ™ ‰»Î¥ÌŒÛµÿ÷∑µº÷¬◊ ≤˙∂™ ß°£
+2.  π”√∂˛Œ¨¬Î£∫æ°¡ø π”√∂˛Œ¨¬Î…®√Ë≥‰÷µµÿ÷∑£¨∂¯≤ª « ÷∂Ø ‰»Î°£∂˛Œ¨¬Îø…“‘ºı…Ÿ ÷∂Ø ‰»Î¥ÌŒÛµƒ∑Áœ’°£
+3. –°∂Ó≤‚ ‘', correct_points=3, score=6.0
+DEBUG:root:Case analysis score: 6.0
+DEBUG:root:Total score: 39.7
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 03:27:31] "POST /submit HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 328-517-210
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 11:35:10] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 11:35:10] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 11:35:10] "[36mGET /questions_corrected.json HTTP/1.1[0m" 304 -
