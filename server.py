@@ -109,4 +109,5 @@ def submit():
     return jsonify({"score": total_score})
 
 if __name__ == '__main__':
+    logging.debug("Starting the server using waitress")
     serve(app, host='0.0.0.0', port=8000)
