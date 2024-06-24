@@ -5,6 +5,7 @@ import os
 from waitress import serve
 
 app = Flask(__name__)
+app.debug = True  # 启用调试模式
 
 # Logging configuration
 logging.basicConfig(filename='server.log', level=logging.DEBUG)
